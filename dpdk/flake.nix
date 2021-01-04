@@ -10,9 +10,6 @@
         linuxScripts =
           "${linux.dev}/lib/modules/${linux.dev.version}/source/scripts";
 
-        coff =
-          with python3Packages; callPackage ./coff.nix { };
-
         commonPackages = [
           codespell
           linux.dev
@@ -22,7 +19,6 @@
           (with python3Packages; [
             black
             pip
-            coff
             pyelftools
             rope
             sphinx
