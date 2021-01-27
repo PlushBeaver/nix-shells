@@ -47,7 +47,7 @@
         linux = mkShell (commonEnv // {
           nativeBuildInputs = [ commonPackages clang ];
 
-          buildInputs = [ numactl pkgconfig ];
+          buildInputs = [ numactl rdma-core pkgconfig ];
         });
       };
   };
