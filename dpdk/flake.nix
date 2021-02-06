@@ -1,6 +1,4 @@
 {
-  inputs.nixpkgs.url = "github:NixOS/nixpkgs/nixos-20.09";
-
   outputs = { nixpkgs, ... }: {
     packages.x86_64-linux = with nixpkgs.legacyPackages.x86_64-linux;
       let
