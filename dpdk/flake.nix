@@ -33,7 +33,9 @@
             "${linuxScripts}/get_maintainer.pl";
         };
 
-      in {
+      in rec {
+        ipsec-mb = callPackage ./ipsec-mb.nix { };
+
         windows = pkgsCross.mingwW64.mkShell (commonEnv // {
           nativeBuildInputs = [ commonPackages binutils-unwrapped ];
 
@@ -45,7 +47,7 @@
         linux = mkShell (commonEnv // {
           nativeBuildInputs = [ commonPackages clang ];
 
-          buildInputs = [ numactl rdma-core pkgconfig ];
+          buildInputs = [ libpcap ipsec-mb numactl rdma-core openssl pkgconfig ];
         });
       };
   };
